@@ -45,7 +45,7 @@ app.post('/api/shorturl', async (req, res) => {
 
     try {
         const urlObj = new URL(url)
-        await dns.promises.lookup(urlObj)
+        await dns.promises.lookup(urlObj.host)
     } catch {
         res.json({
             error: "invalid url",
