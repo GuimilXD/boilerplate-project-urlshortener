@@ -2,14 +2,13 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const dns = require('dns')
 
 // Basic Configuration
 const port = process.env.PORT || 3000;
 
 const URLs = []
 
-app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('/public', express.static(`${process.cwd()}/public`));
